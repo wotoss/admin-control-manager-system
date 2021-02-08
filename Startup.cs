@@ -1,13 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
+using admin_cms.Models.Infraestrutura.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json.Linq;
 
 namespace admin_cms
 {
@@ -22,8 +22,10 @@ namespace admin_cms
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {//ConexaoSql
             services.AddControllersWithViews();
+            JToken jAppSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
+            services.AddDbContext<ContextoCms>(options => options.UseSqlServer(jAppSettings["ConexaoSql"].ToString()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
