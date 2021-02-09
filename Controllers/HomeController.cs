@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using admin_cms.Models;
+using Microsoft.AspNetCore.Http;
+using admin_cms.Models.Infraestrutura.Autenticacao;
 
 namespace admin_cms.Controllers
 {
@@ -17,17 +16,26 @@ namespace admin_cms.Controllers
         {
             _logger = logger;
         }
-
+        [Logado]
         public IActionResult Index()
         {
+            
             return View();
+        }
+        
+        //neste momento vou remover o cookies
+        public IActionResult Sair()
+        {
+            this.HttpContext.Response.Cookies.Delete("adm_cms");
+            return Redirect("/login");
         }
 
         public IActionResult Privacy()
         {
-            return View();
+           
+         return View();   
         }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
