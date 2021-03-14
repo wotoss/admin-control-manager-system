@@ -1,4 +1,4 @@
-@model admin_cms.Models.Dominio.Entidades.Administrador
+@model admin_cms.Models.Dominio.Entidades.Pagina
 
 @{
     ViewData["Title"] = "Create";
@@ -6,12 +6,12 @@
 
 <h1>Create</h1>
 
-<h4>Administrador</h4>
+<h4>Pagina</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            @Html.Partial("Form")
+             @Html.Partial("Form")
         </form>
     </div>
 </div>
@@ -19,3 +19,4 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+

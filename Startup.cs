@@ -23,7 +23,7 @@ namespace admin_cms
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {//ConexaoSql
-            services.AddSession();
+            //services.AddSession();
             services.AddControllersWithViews();
             JToken jAppSettings = JToken.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "appsettings.json")));
             services.AddDbContext<ContextoCms>(options => options.UseSqlServer(jAppSettings["ConexaoSql"].ToString()));
@@ -47,7 +47,14 @@ namespace admin_cms
 
             app.UseRouting();
             
-            app.UseSession();
+            //app.UseSession();
+            
+            //liberando o Cros Domain
+            app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               );
 
             app.UseAuthorization();
 

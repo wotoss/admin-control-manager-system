@@ -63,21 +63,12 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
 
-/*Inicio Css Login*/
 
-
-/* BASIC */
-
-html {
-  background-color: #56baed;
-}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -193,8 +184,8 @@ input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
-  padding: 15px 32px;
-  text-align: center;
+  padding: 10px;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
@@ -324,7 +315,6 @@ input[type=text]:placeholder {
 }
 
 
-
 /* OTHERS */
 
 *:focus {
@@ -334,6 +324,3 @@ input[type=text]:placeholder {
 #icon {
   width:60%;
 }
-
-
-/*Fim Css Login*/

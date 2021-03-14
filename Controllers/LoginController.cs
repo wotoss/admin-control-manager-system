@@ -11,7 +11,8 @@ using admin_cms.Models.Infraestrutura.Autenticacao;
 using admin_cms.Models.Infraestrutura.Database;
 
 namespace admin_cms.Controllers
-{
+{ 
+    
     public class LoginController : Controller
     {
         private readonly ILogger<LoginController> _logger;

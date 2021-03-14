@@ -1,4 +1,4 @@
-@model IEnumerable<admin_cms.Models.Dominio.Entidades.Administrador>
+@model IEnumerable<admin_cms.Models.Dominio.Entidades.Pagina>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,10 +16,16 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Telefone)
+                Área restrita
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                É uma página de Login ?
+            </th>
+            <th>
+                É uma pagina Home ?
+            </th>
+            <th>
+                Ordem de como mostra as Páginas ?
             </th>
             <th></th>
         </tr>
@@ -30,11 +36,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
+               @( item.AreaRestrita ? "Sim" : "Não" )
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @( item.Login ? "Sim" : "Não" )
+            </td>
+            <td>
+                @( item.Home ? "Sim" : "Não" )
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordem)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
